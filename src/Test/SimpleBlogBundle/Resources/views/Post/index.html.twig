@@ -1,0 +1,20 @@
+{% extends 'TestSimpleBlogBundle::layout.html.twig' %}
+
+{% block content -%}
+    <div class="row">
+        <h1 class="col-md-10 col-md-offset-2">Simple blog&nbsp;<a class="btn btn-info" href="{{ path('post_new') }}"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add new post</a></h1>
+    </div>
+    {% for entity in entities %}
+        <div class="row post">
+            <div class="col-md-2 ">{% if entity.created %}{{ entity.created|date('D, jS M g:ia') }}{% endif %}</div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-12"><a href="{{ path('post_show', { 'id': entity.id }) }}"><strong>{{ entity.title }}</strong></a></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">{{ entity.content|truncate(300, true) }}</div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

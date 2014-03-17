@@ -1,0 +1,30 @@
+{% extends 'TestSimpleBlogBundle::layout.html.twig' %}
+
+{% block content -%}
+    <div class="row">
+        <h1 class="col-md-10 col-md-offset-2">Simple blog</h1>
+    </div>
+    <div class="row">
+        <h2 class="col-md-10 col-md-offset-2">Add new post</h1>
+    </div>
+
+		{{ form_start(form) }}
+				{{ form_errors(form) }}
+			<div class="row">
+					<div class="form-group col-md-10 col-md-offset-2">
+							{{ form_label(form.title) }}
+							{{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+							{{ form_errors(form.title) }}
+					</div>
+					<div class="form-group col-md-10 col-md-offset-2">
+							{{ form_label(form.content) }}
+							{{ form_widget(form.content, {'attr': {'class': 'form-control', 'rows': '10'}}) }}
+							{{ form_errors(form.content) }}
+					</div>
+					<div class="form-group col-md-10 col-md-offset-2">
+							{{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+							<a class="btn btn-warning" href="{{ path('post') }}">Back to list</a>
+					</div>
+			</div>
+		{{ form_end(form) }}
+{% endblock %}

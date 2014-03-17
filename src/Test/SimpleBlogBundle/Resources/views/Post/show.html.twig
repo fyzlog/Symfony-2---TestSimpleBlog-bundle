@@ -1,0 +1,25 @@
+{% extends 'TestSimpleBlogBundle::layout.html.twig' %}
+
+{% block content -%}
+    <div class="row">
+        <h1 class="col-md-10 col-md-offset-2">Simple blog</h1>
+    </div>
+		<div class="row">
+				<h2 class="col-md-10 col-md-offset-2">{{ entity.title }}</h2>
+		</div>
+		<div class="row">
+				<div class="col-md-10 col-md-offset-2">
+					<a class="btn btn-sm btn-default" href="{{ path('post') }}">Back to list</a>&nbsp;
+					<a class="btn btn-sm btn-info" href="{{ path('post_edit', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-edit"></span>&nbsp;Edit post</a>&nbsp;
+					<a class="btn btn-sm btn-warning" href="{{ path('post_delete', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-remove"></span>&nbsp;Delete post</a>
+				</div>
+		</div>
+		<div class="row post">
+				<div class="col-md-2 ">{% if entity.created %}{{ entity.created|date('D, jS M g:ia') }}{% endif %}</div>
+				<div class="col-md-10">
+						<div class="row">
+								<div class="col-md-12">{{ entity.content }}</div>
+						</div>
+				</div>
+		</div>
+{% endblock %}

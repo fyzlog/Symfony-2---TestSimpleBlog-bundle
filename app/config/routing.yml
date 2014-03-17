@@ -1,0 +1,3 @@
+test_simple_blog:
+    resource: "@TestSimpleBlogBundle/Resources/config/routing.yml"
+    prefix:   /

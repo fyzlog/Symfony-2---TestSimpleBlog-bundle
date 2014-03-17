@@ -1,0 +1,40 @@
+test_simple_blog_homepage:
+    pattern:  /
+    defaults: { _controller: TestSimpleBlogBundle:Post:index }
+
+test_simple_blog_view:
+    pattern:  /{slug}
+    defaults: { _controller: TestSimpleBlogBundle:Post:show }
+
+post:
+    pattern: /
+    defaults: { _controller: TestSimpleBlogBundle:Post:index }
+
+post_show:
+    pattern: /details/{id}
+    defaults: { _controller: TestSimpleBlogBundle:Post:show }
+    methods: [GET]
+
+post_new:
+    pattern: /new/
+    defaults: { _controller: TestSimpleBlogBundle:Post:new }
+    methods: [GET]
+
+post_create:
+    pattern: /new/
+    defaults: { _controller: TestSimpleBlogBundle:Post:create }
+    methods: [POST]
+
+post_delete:
+    pattern: /delete/{id}
+    defaults: { _controller: TestSimpleBlogBundle:Post:delete }
+
+post_edit:
+    pattern: /edit/{id}
+    defaults: { _controller: TestSimpleBlogBundle:Post:edit }
+    methods: [GET]
+
+post_update:
+    pattern: /edit/{id}
+    defaults: { _controller: TestSimpleBlogBundle:Post:update }
+    methods: [POST, PUT]
